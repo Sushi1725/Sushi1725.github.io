@@ -13,15 +13,15 @@ let label;
 function preload() {
     classifier = ml5.imageClassifier(modelURL + 'model.json');
 	
-	const filters = [
-    { usbVendorId: 0x2341, usbProductId: 0x0043 },
-    { usbVendorId: 0x2341, usbProductId: 0x0001 }
-    ];
+	// const filters = [
+    // { usbVendorId: 0x2341, usbProductId: 0x0043 },
+    // { usbVendorId: 0x2341, usbProductId: 0x0001 }
+    // ];
 	
-	document.querySelector('button').addEventListener('click', async () => {
-    // Prompt user to select an Arduino Uno device.
-      const port = await navigator.serial.requestPort({ filters });
-    });
+	// document.querySelector('button').addEventListener('click', async () => {
+    // // Prompt user to select an Arduino Uno device.
+    //   const port = await navigator.serial.requestPort({ filters });
+    // });
     serial = await navigator.serial.getPorts();
 }
 
