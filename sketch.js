@@ -18,7 +18,7 @@ function preload() {
 
 function setup() {
     serial.open(serialPort);
-    createCanvas(500, 500);
+    createCanvas(window.innerWidth, window.innerHeight);
     video = createCapture(VIDEO);
     cameraBorder = loadImage('camera_border.png');
     videoSize = 330;
@@ -37,7 +37,7 @@ function draw() {
         textAlign(CENTER, CENTER);
         textFont(poppinsBold);
         textSize(14);
-  fill('#164FC8');
+    fill('#164FC8');
         text("enable webcam access", width / 2, height / 2);
         text("and refresh page to use", width / 2, height / 1.9);
     image(video, width / 2 - videoSize / 2, height / 2 - videoSize / 2, videoSize, videoSize, 150, 0, videoSize * 1.5, videoSize * 1.5);
