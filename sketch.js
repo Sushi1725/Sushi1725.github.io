@@ -2,7 +2,7 @@
 Modify modelURL and serialPort to your settings
 */
 const modelURL = 'https://teachablemachine.withgoogle.com/models/HE80Nghuk/';
-const serialPort = 'COM5';
+const serialPort = 'COM6';
 
 let classifier;
 let serial;
