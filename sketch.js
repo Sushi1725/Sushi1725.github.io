@@ -26,16 +26,17 @@ function setup() {
     poppinsBold = loadFont('Poppins-Bold.ttf');
     video.hide();
     // flippedVideo = ml5.flipImage(video);
-    classifyVideo();
+    // classifyVideo();
 }
 
 function draw() {
 
-    background(0, 0, 0);
+    background('#E8F0FE');
     noStroke();
         textAlign(CENTER, CENTER);
         textFont(poppinsBold);
         textSize(14);
+    fill('#164FC8');
         text("enable webcam access", width / 2, height / 1.6);
         text("and refresh page to use", width / 2, height / 1.5);
     image(video, width / 2 - videoSize / 2, height / 1.6 - videoSize / 2, videoSize, videoSize, 150, 0, videoSize * 1.5, videoSize * 1.5);
@@ -64,5 +65,5 @@ function gotResult(error, results) {
     label = String(results[0].label);
     console.log(label);
     serial.write(label);
-    classifyVideo();
+    // classifyVideo();
 }
