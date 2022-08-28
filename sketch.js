@@ -11,10 +11,7 @@ let video;
 let label;
 let cameraBorder;
 let videoSize;
-// let variable;
-// let inp;
 let modelInput;
-let bgColor = '#e8f0fe';
 var loadModel;
 var click2;
 let isModelLoaded;
@@ -36,19 +33,9 @@ function setup() {
     poppinsRegular = loadFont('Poppins-Regular.ttf');
     group = loadImage('Group 61.png');
     video.hide();
-    // flippedVideo = ml5.flipImage(video);
-    // classifyVideo();
-
-  // let variable;
-  // let inp = createInput('COM');
-  // inp.position(0, 0);
-  // inp.size(100);
-  // inp.input(myInputEvent);
 
     modelInput = createInput();
     modelInput.input(myInputEvent);
-      // modelInput.style('position', 'absolute');
-      // modelInput.style('z-index', 10);
     modelInput.position(20, 20);
     modelInput.style('height', '35px');
     modelInput.style('width', '267px');
@@ -71,9 +58,7 @@ function setup() {
         loadModel.style.fontSize = 18;
         loadModel.hoverStyle.background = '#2277FF';
         loadModel.style.color = '#2277FF';
-  // loadModel.onClick = function(){
-  //   console.log("I have been pressed!");
-  // }
+
     loadModel.onClick = () => {
     // try {
     
@@ -126,14 +111,10 @@ function setup() {
         serialPort.style('font-size', '16px');
         serialPort.style('padding-left', '5px');
         serialPort.style('color', '#000000');
-      // serialPort.attribute('placeholder', "Paste model link here");
-        lastSerialPort = serialPort.value();
         serialPort.changed(mySelectEvent);
 }
 
 function mySelectEvent() {
-  // let item = serialPort.value();
-  // console.log('It is a ' + item + '!');
     console.log(lastSerialPort + ' is now closed')
     lastSerialPort = serialPort.value();
     serial.close(lastSerialPort);
@@ -144,19 +125,12 @@ function mySelectEvent() {
     }, 500);
 }
 
-
 function myInputEvent() {
     modelURL = this.value();
 }
 
-// function myInputEvent() {
-//   variable = inp
-//   console.log(variable);
-// }
-
 function draw() {
     background('#E8F0FE');
-    // background(0, 0, 0);
     noStroke();
     textAlign(CENTER, CENTER);
     textFont(poppinsBold);
@@ -193,5 +167,4 @@ function gotResult(error, results) {
     label = String(results[0].label);
     console.log(label);
     serial.write(label);
-    // classifyVideo();
 }
