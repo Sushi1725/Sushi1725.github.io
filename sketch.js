@@ -58,7 +58,7 @@ function setup() {
     modelInput.style('font', 'poppinsRegular');
     modelInput.style('font-size', '16px');
     modelInput.style('padding-left', '5px');
-    modelInput.style('color', '#669df6');
+    modelInput.style('color', '#000000');
     modelInput.attribute('placeholder', "Paste model link here");
 
         loadModel = new button();
@@ -125,7 +125,7 @@ function setup() {
         serialPort.style('font', 'poppinsRegular');
         serialPort.style('font-size', '16px');
         serialPort.style('padding-left', '5px');
-        serialPort.style('color', '#669df6');
+        serialPort.style('color', '#000000');
       // serialPort.attribute('placeholder', "Paste model link here");
         lastSerialPort = serialPort.value();
         serialPort.changed(mySelectEvent);
