@@ -23,7 +23,6 @@ function preload() {
 }
 
 function setup() {
-    // serial.open(serialPort);
     createCanvas(window.innerWidth, window.innerHeight);
     video = createCapture(VIDEO);
     cameraBorder = loadImage('camera_border.png');
