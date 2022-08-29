@@ -28,7 +28,7 @@ function setup() {
     createCanvas(window.innerWidth, window.innerHeight);
     video = createCapture(VIDEO);
     cameraBorder = loadImage('camera_border.png');
-    LEDbutton = createImg('camera_border_1.png');
+        LEDbutton = createImg('camera_border_1.png');
     videoSize = 330;
     video.size(320, 240);
     poppinsBold = loadFont('Poppins-Bold.ttf');
@@ -164,10 +164,12 @@ function draw() {
   // rect(width/3, height/1.5, 300, 30, 10)
 
     textFont(poppinsBold);
-    textSize(14);
-    fill("#164FC8");
-    textAlign(CENTER, BOTTOM);
-    text(label, width / 2, wordPlace/2);
+textSize(14);
+fill('#164FC8');
+  // textAlign(CENTER, CENTER)
+  // rectMode(CENTER);
+text(label, width  /2, height / 2 + 200); //makes it so that the lext is half of the heigh (height/2) and 200 pixels off of it
+
 }
 
 
