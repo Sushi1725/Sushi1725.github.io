@@ -164,11 +164,10 @@ function draw() {
   // rect(width/3, height/1.5, 300, 30, 10)
 
     textFont(poppinsBold);
-textSize(14);
-fill('#164FC8');
-  // textAlign(CENTER, CENTER)
-  // rectMode(CENTER);
-text(label, width  /2, height / 1.25);
+    textSize(14);
+    fill("#164FC8");
+    textAlign(CENTER, BOTTOM);
+    text(label, width / 2, wordPlace/2);
 }
 
 
