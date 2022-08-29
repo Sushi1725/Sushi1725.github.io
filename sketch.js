@@ -1,7 +1,7 @@
 /*
 Modify modelURL and serialPort to your settings
 */
-let modelURL = 'https://teachablemachine.withgoogle.com/models/Ay9VyKKtX/';
+let modelURL = 'https://teachablemachine.withgoogle.com/models/hYEEGTPAQ/';
 let serialPort = 'COM6';
 let lastSerialPort;
 
@@ -65,6 +65,7 @@ function setup() {
         console.log(modelURL + 'metadata.json');
         classifier = ml5.imageClassifier(modelURL + 'model.json');
         classifyVideo()
+      console.log("ai model is changed");
 
       // httpGet(modelURL + 'metadata.json', 'json', false, (response) => {
 //         if (response.labels.length <= 2) {
@@ -125,7 +126,7 @@ function mySelectEvent() {
 }
 
 function myInputEvent() {
-    modelURL = this.value();
+    modelURL = modelInput.value();
 }
 
 function draw() {
