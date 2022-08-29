@@ -2,7 +2,7 @@
 Modify modelURL and serialPort to your settings
 */
 let modelURL = 'https://teachablemachine.withgoogle.com/models/f-AooH1EI/';
-let serialPort = 'COM6';
+let serialPort;
 let lastSerialPort;
 
 let classifier;
@@ -28,7 +28,7 @@ function setup() {
     createCanvas(window.innerWidth, window.innerHeight);
     video = createCapture(VIDEO);
     cameraBorder = loadImage('camera_border.png');
-    LEDbutton = createImg('camera_border_1.png');
+  LEDbutton = createImg('camera_border_1.png');
     videoSize = 330;
     video.size(320, 240);
     poppinsBold = loadFont('Poppins-Bold.ttf');
@@ -68,7 +68,7 @@ function setup() {
         console.log(modelURL + 'metadata.json');
         classifier = ml5.imageClassifier(modelURL + 'model.json');
         classifyVideo()
-        console.log("ai model is changed");
+      console.log("ai model is changed");
 
       // httpGet(modelURL + 'metadata.json', 'json', false, (response) => {
 //         if (response.labels.length <= 2) {
@@ -116,7 +116,8 @@ function setup() {
         serialPort.style('color', '#000000');
         serialPort.changed(mySelectEvent);
   // serialPort.changed(LED);
-
+    
+  
 }
 
 function mySelectEvent() {
@@ -124,8 +125,8 @@ function mySelectEvent() {
     lastSerialPort = serialPort.value();
     serial.close(lastSerialPort);
 
-    console.log(label);
-
+  console.log(label);
+  
     setTimeout(() => {
         console.log(serialPort.value() + ' is now opened');
         serial.open(serialPort.value());
@@ -161,11 +162,15 @@ function draw() {
     loadModel.draw();
 // LEDbutton.position(20, 300);
 //   square(20, 300, 50);
-
-        textFont(poppinsBold);
-        textSize(14);
-        fill('#164FC8');
-        text(label, width/2, height/1.5);
+  // rect(width/3, height/1.5, 300, 30, 10)
+  
+  textFont(poppinsBold);
+textSize(14);
+fill('#164FC8');
+  // textAlign(CENTER, CENTER)
+  // rectMode(CENTER);
+text(label, width  /2, height / 1.25);
+  
 }
 
 
