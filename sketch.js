@@ -1,7 +1,7 @@
 /*
 Modify modelURL and serialPort to your settings
 */
-let modelURL = 'https://teachablemachine.withgoogle.com/models/hYEEGTPAQ/';
+let modelURL = 'https://teachablemachine.withgoogle.com/models/f-AooH1EI/';
 let serialPort = 'COM6';
 let lastSerialPort;
 
@@ -10,12 +10,14 @@ let serial;
 let video;
 let label;
 let cameraBorder;
+// let LEDbutton;
 let videoSize;
 let modelInput;
 var loadModel;
 var click2;
 let isModelLoaded;
 let labels = [];
+let videoThing;
 
 function preload() {
     classifier = ml5.imageClassifier(modelURL + 'model.json');
@@ -26,6 +28,7 @@ function setup() {
     createCanvas(window.innerWidth, window.innerHeight);
     video = createCapture(VIDEO);
     cameraBorder = loadImage('camera_border.png');
+    LEDbutton = createImg('camera_border_1.png');
     videoSize = 330;
     video.size(320, 240);
     poppinsBold = loadFont('Poppins-Bold.ttf');
@@ -65,7 +68,7 @@ function setup() {
         console.log(modelURL + 'metadata.json');
         classifier = ml5.imageClassifier(modelURL + 'model.json');
         classifyVideo()
-      console.log("ai model is changed");
+        console.log("ai model is changed");
 
       // httpGet(modelURL + 'metadata.json', 'json', false, (response) => {
 //         if (response.labels.length <= 2) {
@@ -112,12 +115,16 @@ function setup() {
         serialPort.style('padding-left', '5px');
         serialPort.style('color', '#000000');
         serialPort.changed(mySelectEvent);
+  // serialPort.changed(LED);
+
 }
 
 function mySelectEvent() {
     console.log(lastSerialPort + ' is now closed')
     lastSerialPort = serialPort.value();
     serial.close(lastSerialPort);
+
+    console.log(label);
 
     setTimeout(() => {
         console.log(serialPort.value() + ' is now opened');
@@ -152,8 +159,19 @@ function draw() {
 //     textAlign(CENTER);
 //     text(label, width / 2, height - 4);
     loadModel.draw();
+// LEDbutton.position(20, 300);
+//   square(20, 300, 50);
+
+        textFont(poppinsBold);
+        textSize(14);
+        fill('#164FC8');
+        text(label, width/2, height/1.5);
 }
 
+
+// function colourChange() {
+//   fill(0, 0, 0);
+// }
 
 function classifyVideo() {
     classifier.classify(video, gotResult);
@@ -165,6 +183,6 @@ function gotResult(error, results) {
         return;
     }
     label = String(results[0].label);
-    console.log(label);
-    serial.write(label);
+    console.log(label[0]);
+    serial.write(label[0]);
 }
