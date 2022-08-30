@@ -1,7 +1,7 @@
 /*
 Modify modelURL and serialPort to your settings
 */
-let modelURL = 'https://teachablemachine.withgoogle.com/models/f-AooH1EI/';
+let modelURL = 'https://teachablemachine.withgoogle.com/models/v4-aeUiwc/';
 let serialPort;
 let lastSerialPort;
 
@@ -28,7 +28,7 @@ function setup() {
     createCanvas(window.innerWidth, window.innerHeight);
     video = createCapture(VIDEO);
     cameraBorder = loadImage('camera_border.png');
-        LEDbutton = createImg('camera_border_1.png');
+    // LEDbutton = createImg('camera_border_1.png');
     videoSize = 330;
     video.size(320, 240);
     poppinsBold = loadFont('Poppins-Bold.ttf');
@@ -163,13 +163,16 @@ function draw() {
 //   square(20, 300, 50);
   // rect(width/3, height/1.5, 300, 30, 10)
 
+  // fill('#FFFFFF');
+// rect(width/2-125, height/2+187, 250, 30)
+// rect.style('border-radius', '4px 4px 0px 0px');
+
     textFont(poppinsBold);
 textSize(14);
 fill('#164FC8');
   // textAlign(CENTER, CENTER)
   // rectMode(CENTER);
-text(label, width  /2, height / 2 + 200); //makes it so that the lext is half of the heigh (height/2) and 200 pixels off of it
-
+text('I see: ' + label, width  /2, height / 2 + 200); //makes it so that the lext is half of the heigh (height/2) and 200 pixels off of it
 }
 
 
@@ -187,6 +190,6 @@ function gotResult(error, results) {
         return;
     }
     label = String(results[0].label);
-    console.log(label[0]);
+    console.log('I see: ' + label);
     serial.write(label[0]);
 }
