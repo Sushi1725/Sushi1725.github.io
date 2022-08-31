@@ -191,5 +191,6 @@ function gotResult(error, results) {
     }
     label = String(results[0].label);
     console.log('I see: ' + label);
+    console.log('Sending --> ' + label[0]);
     serial.write(label[0]);
 }
