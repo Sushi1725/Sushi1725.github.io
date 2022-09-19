@@ -1,7 +1,7 @@
 /*
 Modify modelURL and serialPort to your settings
 */
-let modelURL = 'https://teachablemachine.withgoogle.com/models/v4-aeUiwc/';
+let modelURL = 'https://teachablemachine.withgoogle.com/models/N1TxZvpXu/';
 let serialPort;
 let lastSerialPort;
 
